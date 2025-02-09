@@ -1,0 +1,70 @@
+{% extends "HomePage/cover.html" %}
+{% block gyb %}
+        <div class="page-header" style="background-image: url('{{ url_for('static', filename='style/homePage/img/new/carousel6.png') }}');">
+        </div>
+        
+        <!-- Service Start -->
+        <div class="service">
+            <div class="container">
+
+                <div class="section-header text-center">
+                    <h2>Our Services</h2>
+                    <!-- <h2>{{ app_name }} Services</h2> -->
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Centralized Job Listings</h3>
+                            <p>Say goodbye to browsing multiple job portals. Job Sphere Rda aggregates job listings from various platforms into a single, user-friendly interface. Explore opportunities across {{ category_counts }} job categories and {{ job_count }} job positions, all in one place.</p>
+                        </div> 
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Personalized Job Alerts</h3>
+                            <p>Never miss a job opportunity with our <b>real-time alert system</b>. Get personalized email notifications tailored to your skills and interests. From software development to accounting, we keep you informed about the latest openings relevant to your profession.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Advanced Job Search Filters</h3>
+                            <p>Find your dream job faster with our advanced search options. Filter job listings by location, category, experience level, or salary range to discover the perfect match.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Career Insights and Updates</h3>
+                            <p>Stay informed with career insights, industry updates, and tips to ace your job applications. Our platform is designed to support you throughout your job-hunting journey.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Seamless Application Process</h3>
+                            <p>Apply for jobs directly through our platform. We streamline the application process, ensuring your resume reaches employers efficiently and effectively.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Employer Advertising Options</h3>
+                            <p>Employers can advertise job vacancies on our platform to reach a wider audience of skilled professionals. Showcase your company and attract top talent with our customizable ad packages.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Mobile-Friendly Experience</h3>
+                            <p>Access Job Sphere Rda anytime, anywhere. Our mobile-friendly design ensures you can browse job opportunities and receive alerts on the go.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item">
+                            <h3><i class="fa fa-briefcase" style="width:35px;height:35px;"></i>&nbsp;Dedicated Support</h3>
+                            <p>Have questions or need help? Our dedicated support team is always ready to assist you with any inquiries about our services or platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+        
+{% endblock %}

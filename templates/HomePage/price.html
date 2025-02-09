@@ -1,0 +1,84 @@
+{% extends "HomePage/cover.html" %}
+{% block gyb %}
+        <!-- Page Header Start -->
+        <div class="page-header" style="background-image: url('{{ url_for('static', filename='style/homePage/img/new/carousel6.png') }}');">
+        </div>
+        <!-- Page Header End -->
+        
+        <!-- Price start -->
+        <div class="price">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Job Seekers' Payment</p>
+                    <h2>Choose Your Plan</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <h3>1 Month</h3>
+                                <h2><span></span><strong>3,000</strong><span>Frw</span></h2>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li><i class="far fa-check-circle"></i>Job categories depend on skills</li>
+                                    <li><i class="far fa-check-circle"></i>Job positions depend on skills</li>
+                                    <li><i class="far fa-check-circle"></i>New opportunity notification</li>
+                                    <li><i class="far fa-check-circle"></i> Actively for 30 days</li>
+                                </ul>
+                            </div>
+                            <div class="price-footer">
+                                <!-- <a class="btn btn-custom" href="">Book Now</a> -->
+
+                                <button class="btn btn-custom openModal">Book Now</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="price-item featured-item">
+                            <div class="price-header">
+                                <h3>6 months</h3>
+                                <h2><strong>12,000</strong><span>Frw</span></h2>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li><i class="far fa-check-circle"></i>Job categories depend on skills</li>
+                                    <li><i class="far fa-check-circle"></i>Job positions depend on skills</li>
+                                    <li><i class="far fa-check-circle"></i>New opportunity notification</li>
+                                    <li><i class="far fa-check-circle"></i>Actively for 183 days</li>
+                                </ul>
+                            </div>
+                            <div class="price-footer">
+                                <!-- <a class="btn btn-custom" href="">Book Now</a> -->
+                                <button class="btn btn-custom openModal">Book Now</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <h3>Yearly</h3>
+                                <h2><strong>20,000</strong><span>Frw</span></h2>
+                            </div>
+                            <div class="price-body">
+                                <ul> 
+                                    <li><i class="far fa-check-circle"></i>Job categories depend on skills</li>
+                                    <li><i class="far fa-check-circle"></i>Job positions depend on skills</li>
+                                    <li><i class="far fa-check-circle"></i>New opportunity notification</li>
+                                    <li><i class="far fa-check-circle"></i>Actively for 365 days </li>
+                                </ul>
+                            </div>
+                            <div class="price-footer">
+                                <!-- <a class="btn btn-custom" href="">Book Now</a> -->
+                                <button class="btn btn-custom openModal">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Price End -->
+        
+{% endblock %}

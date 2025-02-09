@@ -1,0 +1,458 @@
+{% extends "HomePage/cover.html" %}
+{% block gyb %}
+<style type="text/css">
+
+        .main_search_container {
+/*            background-color: #f3f4f6;*/
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+/*            height: 100vh;*/
+            margin-top:4%;
+            margin-bottom:20px;
+        }
+
+        #top_nav_bar {
+            display: flex;
+            justify-content: space-between; /* Align items with space between */
+            width: 100%; /* Full width */
+            padding: 10px 20px; /* Add padding */
+            background-color: #ffffff; /* Background color for visibility */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            position: absolute; /* Position absolutely to float above main content */
+            top: 0; /* Align to top */
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+
+        #top_nav_bar h2 {
+            text-align: center; /* Center the text */
+            width: 100%; /* Make it full width */
+            font-family: cursive;
+            font-style: italic;
+            margin: 0; /* Remove any default margins */
+            padding: 5px 0px 5px 0px; /* Add some vertical padding for spacing */
+        }
+
+        #top_nav_bar h2 img {
+            vertical-align: middle;
+        }
+
+        #top_nav_bar img{
+            position: relative;
+            margin-top: -5px;
+        }
+
+
+        /* Account button style */
+        .account-button {
+            background-color: #007bff; /* Button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 5px 10px; /* Padding around the text */
+            cursor: pointer; /* Pointer cursor on hover */
+            display: inline-flex; /* Flexbox for alignment */
+            align-items: center; /* Center icon and text vertically */
+            margin-left: 10px; /* Space between title and button */
+        }
+
+        .account-button i {
+            margin-right: 5px; /* Space between icon and text */
+        }
+
+
+        /* Search Container */
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 20px 50px 20px 20px; /* Padding for icon space */
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 23px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        #search-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Search Icon */
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            font-size: 40px;
+            color: #007bff;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        /* Suggestions Container */
+        .suggestions {
+            position: absolute;
+            top: 100%; /* Position below the input field */
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 0 0 10px 10px;
+            z-index: 10;
+            max-height: 250px; /* Max height for the suggestions */
+            overflow-y: auto; /* Scroll if necessary */
+            display: none; /* Hide initially */
+
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f0f0f0; /* Highlight on hover */
+        }
+
+        .highlight {
+            color: blue; /* Highlight text color */
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #search-input {
+                margin-top: 20px;
+                font-size: 16px;
+                padding: 20px 45px 25px 10px;
+            }
+
+            .section-header{
+                margin-top: -30px;
+            }
+
+            .search-icon {
+                font-size: 30px;
+                margin-top:4%;
+            }
+
+
+            .suggestions{
+                overflow-y: auto;
+                max-height: 300px;
+            }
+
+            #top_nav_bar {
+                display: flex; /* Ensure it is displayed on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #search-input {
+                font-size: 14px;
+                padding: 16px 40px 16px 12px; /* Adjust padding for small screens */
+            }
+
+
+            .suggestions{
+                overflow-y: auto;
+                max-height: 300px;
+            }
+
+            .search-icon {
+                font-size: 28px;
+            }
+        }
+
+        .no-match-message {
+            color: red; /* Change color as needed */
+            padding: 10px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .testimonial-item-job{
+            background-color:white;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 95%;
+            margin-left: 5px;
+            padding: 0 15px;
+            display: flex;
+        }
+
+
+        .testimonial{
+            position: relative;
+            width: 100%;
+            padding: 0 15px;
+            display: flex;
+        }
+
+        /*.testimonial .testimonial-item-job i {
+            width: 150px;
+            height: 150px;
+            border-radius: 80px;
+            transform: scale(.8);
+            transition: 2s;
+        }*/
+
+        .testimonial .owl-item.center .testimonial-item-job i {
+            transform: scale(1);
+        }
+
+        .view_btn{
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed in place */
+            z-index: 1000; /* Sit on top of other content */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full screen width */
+            height: 100%; /* Full screen height */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%; /* Or any size you prefer */
+            max-width: 500px;
+        }
+
+        .modal-content p{
+            text-align: center;
+            justify-content: center;
+            font-family: sans-serif;
+            font-size:20px;
+        }
+
+        #close-modal{
+            display: flex;
+            position: relative;
+            float: right;
+            margin-right: 10px;
+        }
+
+        /* Close Button */
+        .close {
+            position: relative;
+            float: right;
+            margin-right: 5px;
+            color: red;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <section class="main_search_container">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Searching ... {{ job_count }} jobs found in system" />
+            <div id="search-icon" class="search-icon">&#128269;</div>
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+    </section>
+    <section>
+
+    <!-- Modal -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <p>You have to create an account first , &nbsp;<a href="/register" style="color:blue;">Sign up</a> </p>
+            <!-- <p id="search-term-display">Searching for: </p> -->
+        </div>
+    </div>
+
+     <br>   
+
+    <!-- Testimonial Start -->
+        <div class="price" style="margin-top:-2%;">
+            <div class="container">
+                
+                <div class="section-header text-center" style="font-family: sans-serif;font-style: italic;">
+                    <p>Job Listings by Category</i> </p>
+                    <h5 style="text-decoration:underline;margin-top: 3px;">Jobs <i class="text-secondary">{{ job_count }}</i> and categories <i class="text-secondary">{{ categorized_jobs|length }}</i></h5>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <div class="container">
+            
+                <div class="owl-carousel testimonials-carousel">    {% for category, jobs in categorized_jobs.items() %}
+                        {% if jobs|length > 0 %}
+                            <div class="testimonial-item-job">
+                                <div class="testimonial-text">
+                                    <h3>{{ category }} (<i class="text-secondary">{{ jobs|length }}</i> jobs)</h3> <!-- Count jobs in each category -->
+                                    <ul>
+                                        {% for job in jobs[:5] %}
+                                            <li>
+                                                {% if job|length > 34 %}
+                                                    {{ job[:34] }}...
+                                                {% else %}
+                                                    {{ job }}
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+
+                                    <!-- <button class="btn btn-primary">More</button> -->
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+        
+    </section>
+
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        // Get the input, icon, and suggestions elements
+        const searchInput = document.getElementById('search-input');
+        const searchIcon = document.getElementById('search-icon');
+        const suggestionsContainer = document.getElementById('suggestions');
+
+        // Pass the job listings from Flask to JavaScript
+        const suggestions = [
+            {% for job in job_listings %}
+                "{{ job }}"{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ];
+
+        // Function to decode HTML entities
+        function decodeHtmlEntities(str) {
+            const textarea = document.createElement('textarea');
+            textarea.innerHTML = str;
+            return textarea.value;
+        }
+
+        // Decode the suggestions
+        const decodedSuggestions = suggestions.map(decodeHtmlEntities);
+
+        function showSuggestions(value) {
+            suggestionsContainer.innerHTML = ""; // Clear previous suggestions
+
+            // Don't check only for trimmed value, consider full string with spaces
+            if (value) {
+                const filteredSuggestions = decodedSuggestions.filter(suggestion => {
+                    const normalizedSuggestion = suggestion.toLowerCase().replace(/\s+/g, ' '); // Normalize spaces in suggestions
+                    const normalizedInput = value.toLowerCase().replace(/\s+/g, ' '); // Normalize spaces in input
+                    return normalizedSuggestion.includes(normalizedInput); // Check if suggestion contains input
+                });
+
+                if (filteredSuggestions.length > 0) {
+                    filteredSuggestions.forEach(suggestion => {
+                        const suggestionItem = document.createElement('div');
+                        suggestionItem.classList.add('suggestion-item');
+                        
+                        // Highlighting matching part of the suggestion
+                        const highlightedText = highlightMatchingText(suggestion, value);
+                        suggestionItem.innerHTML = highlightedText;
+
+                        // Click event for suggestion item
+                        suggestionItem.addEventListener('click', () => {
+                            searchInput.value = suggestion; // Set input value
+                            suggestionsContainer.innerHTML = ""; // Clear suggestions
+                            suggestionsContainer.style.display = "none"; // Hide suggestions
+                        });
+
+                        suggestionsContainer.appendChild(suggestionItem);
+                    });
+                    suggestionsContainer.style.display = "block"; // Show suggestions
+                } else {
+                    // If no suggestions match, show "not matching" message
+                    const noMatchMessage = document.createElement('div');
+                    noMatchMessage.classList.add('no-match-message');
+                    noMatchMessage.textContent = "Not matching!";
+                    suggestionsContainer.appendChild(noMatchMessage);
+                    suggestionsContainer.style.display = "block"; // Show the no match message
+                }
+            } else {
+                suggestionsContainer.style.display = "none"; // Hide if input is empty
+            }
+        }
+
+        // Function to highlight matching text in suggestions
+        function highlightMatchingText(suggestion, value) {
+            const regex = new RegExp(`(${value.trim()})`, 'gi'); // Create a regex for matching the input
+            return suggestion.replace(regex, '<span class="highlight" style=" color:blue;">$1</span>'); // Highlight the matched text
+        }
+
+        // Add event listener to the input field
+        searchInput.addEventListener('input', function() {
+            const inputValue = this.value; // Get input value without trimming spaces
+            showSuggestions(inputValue); // Show suggestions
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('search-modal');
+        const closeModal = document.getElementById('close-modal');
+        // const searchTermDisplay = document.getElementById('search-term-display');
+
+        // Add click event listener to the search icon
+        searchIcon.addEventListener('click', function() {
+            const searchTerm = searchInput.value; // Keep the full input value without trimming spaces
+
+            if (searchTerm) {
+                // alert(`Searching for: ${searchTerm}`);
+                // searchTermDisplay.textContent = `Searching for: ${searchTerm}`;
+                // searchTermDisplay.textContent = `Login first`;
+                // Show the modal
+                modal.style.display = "block";
+             } else {
+                // alert('Please enter a search term.');
+            }
+        });
+
+        // Function to close the modal
+        closeModal.addEventListener('click', function() {
+            modal.style.display = "none"; // Hide the modal
+        });
+
+        // Close modal if clicked outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none"; // Close modal if clicked outside
+            }
+        });
+
+        // Optional: Add an event listener for pressing the Enter key in the input
+        searchInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchIcon.click(); // Trigger the click event on the icon
+            }
+        });
+    </script>
+
+
+{% endblock %}
