@@ -43,7 +43,7 @@
 {
   "name": "soil_smart",
   "version": "1.0.0",
-  "description": "In Rwanda, many youths face challenges finding job opportunities due to the fragmented nature of job listings across different websites. This project addresses that problem by aggregating job postings from multiple job-seeking platforms used in Rwanda, allowing users to easily browse and apply for available positions in one place.",
+  "description": "aoil smart.",
   "main": "index.js",
   "scripts": {
     "start": "gunicorn app:app",
