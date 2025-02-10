@@ -6,7 +6,7 @@ from dataset import dataset  # Import the dataset function
 data = dataset()  # This loads the dataset as a DataFrame
 
 # Columns to plot
-columns = ['N', 'P', 'K', 'temperature', 'soil_moisture', 'ph', 'Conductivity']
+columns = ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']
 
 # Create subplots: 7 rows, 1 column
 fig, ax = plt.subplots(7, 1, figsize=(15, 21), sharex=True)

@@ -12,7 +12,7 @@ data = dataset()
 print(data.head())
 
 # Define the features and target
-X = data[['N', 'P', 'K', 'temperature', 'soil_moisture', 'ph', 'conductivity']]  # Features
+X = data[['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']]  # Features
 y = data['label']  # Target variable (crop label)
 
 # Split the data into training and test sets (80% train, 20% test)

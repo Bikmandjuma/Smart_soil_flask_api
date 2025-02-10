@@ -32,9 +32,9 @@ new_data = pd.DataFrame({
     'P': [20],
     'K': [15],
     'temperature': [25.0],
-    'soil_moisture': [80.0],
+    'humidity': [80.0],
     'ph': [6.5],
-    'Conductivity': [200.0]
+    'rainfall': [200.0]
 
 })
 

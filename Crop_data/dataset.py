@@ -1,6 +1,15 @@
 import pandas as pd
 
-# Define the function that returns the dataset
 def dataset():
-    return pd.read_csv('dataset/Crop_recommendation.csv')
-    # return pd.read_csv('dataset/Plant_Parameters.csv')
+    return pd.read_csv('Crop_data/dataset/Crop_recommendation.csv')
+    # return pd.read_csv('Crop_data/dataset/Plant_Parameters.csv')
+
+# import pandas as pd
+
+# class Dataset:
+#     def __init__(self):
+
+#         self.data = pd.read_csv("Crop_data/dataset/Crop_recommendation.csv")
+
+#     def get_data(self):
+#         return self.data
