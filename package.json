@@ -1,49 +1,7 @@
-// {
-//   "name": "jospher_front-end",
-//   "version": "1.0.0",
-//   "description": "Rwanda Job Aggregator\r About the Project\r In Rwanda, many youths face challenges finding job opportunities due to the fragmented nature of job listings across different websites. This project addresses that problem by aggregating job postings from multiple job-seeking platforms used in Rwanda, allowing users to easily browse and apply for available positions in one place.",
-//   "main": "index.js",
-//   "scripts": {
-//     "test": "echo \"Error: no test specified\" && exit 1"
-//   },
-//   "keywords": [],
-//   "author": "",
-//   "license": "ISC",
-//   "devDependencies": {
-//     "autoprefixer": "^10.4.20",
-//     "postcss": "^8.4.49",
-//     "tailwindcss": "^3.4.16"
-//   }
-// }
-
-// "scripts": {
-//   "build:css": "npx tailwindcss build static/css/styles.css -o static/css/dist/styles.css --minify"
-// }
-
-// {
-//   "name": "soil_smart",
-//   "version": "1.0.0",
-//   "description": "Rwanda Job Aggregator\nAbout the Project\nIn Rwanda, many youths face challenges finding job opportunities due to the fragmented nature of job listings across different websites. This project addresses that problem by aggregating job postings from multiple job-seeking platforms used in Rwanda, allowing users to easily browse and apply for available positions in one place.",
-//   "main": "index.js",
-//   "scripts": {
-//     "start": "gunicorn app:app",
-//     "test": "echo \"Error: no test specified\" && exit 1",
-//     "build:css": "npx tailwindcss build static/css/styles.css -o static/css/dist/styles.css --minify"
-//   },
-//   "keywords": [],
-//   "author": "",
-//   "license": "ISC",
-//   "devDependencies": {
-//     "autoprefixer": "^10.4.20",
-//     "postcss": "^8.4.49",
-//     "tailwindcss": "^3.4.16"
-//   }
-// }
-
 {
   "name": "soil_smart",
   "version": "1.0.0",
-  "description": "aoil smart.",
+  "description": "Soil smart.",
   "main": "index.js",
   "scripts": {
     "start": "gunicorn app:app",
