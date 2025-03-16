@@ -1,4 +1,4 @@
-N,P,K,temperature,ph,soil_moisture,conductivity,label
+N,P,K,temperature,pH,soil_moisture,conductivity,label
 90,42,43,20.87974371,6.502985292,0.125027107,7.998265534,rice
 85,58,41,21.77046169,7.038096361,0.123752509,8.080644236,rice
 60,55,44,23.00445915,7.840207144,0.150971441,6.623769317,rice
